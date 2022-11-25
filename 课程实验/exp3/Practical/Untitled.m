@@ -1,13 +1,6 @@
-clc;
-clear all;
-wn = [0.3 0.5];
-n = 15;
-window = hanning(n+1);
-
-Han_15 = fir1(n, wn, 'bandpass', window);
-
-freqz(Han_15, 1);
-
-title('Hanning窗带通滤波器 N=15')
-
-%powerbw(Han_15);
+f1=50;
+f2=200;
+fs=1000;
+n=1:500;
+x=0.5+1.2*sin(2*pi*f1*n/fs)+0.5*cos(2*pi*f2*n/fs);
+x=x+awgn(x,10,'measured');
